@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Todolist</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+		<title>Todolist</title>
+	  	<%= stylesheet_link_tag    "application", media: "all" %>
+	  	<%= javascript_include_tag "application" %>
+	  	<%= csrf_meta_tags %>
+	  	<script type="text/javascript" charset="utf-8">
+	  		jQuery(function(){
+	    		new App({el: $("#app")})
+	  		});
+		</script>
+	</head>
+	<body>
+		<%= yield %>
+	</body>
 </html>

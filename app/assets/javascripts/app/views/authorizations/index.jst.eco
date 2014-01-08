@@ -1,0 +1,12 @@
+<h4>Login or register</h4>
+<p class="login_form">
+	<input type="text" id="login_username" placeholder="Username" /><br />
+	<input type="password" id="login_password" placeholder="Password" /><br />
+	<input type="button" class="login" value="Login" />
+</p>
+<p class="registration_form">
+	<input type="text" id="register_username" placeholder="Username" /><br />
+	<input type="password" id="register_password" placeholder="Password" /><br />
+	<input type="password" id="register_password_confirmation" placeholder="Confirm password" /><br />
+	<input type="button" class="register" value="Register" />
+</p>

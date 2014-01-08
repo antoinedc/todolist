@@ -1,0 +1,88 @@
+<h5>Hi <%= @user.username %> (<a href="#" class="logout">logout</a>), here are your tasks:</h5>
+
+<% for task in @tasks: %>
+  <div class="task" data-id="<%= task.id %>">
+    <input type="checkbox" <%= 'checked' if task.status %> class="task_status" />
+    <input type="text" value="<%= task.name %>" class="task_name" />
+    Priority: <input type="text" class="task_priority" size="3" value="<%= task.priority %>" /> |
+    <a href="#" data-type="destroy">Delete</a>
+  </div>
+<% end %>
+
+<h3>New task:</h3>
+<p class="new_task_form">
+	<label for="new_task_name">
+		Name:
+		<input type="text" class="task_name" id="new_task_name" />
+	</label>
+	<label for="new_task_priority">
+		Priority:
+		<input type="text" class="task_priority" size="3" id="new_task_priority" />
+	</label>
+	<input type="button" class="submit_new_task" value="Create" />
+</p>
+
+<p>
+	<h3>API:</h3>
+	<span>Make a request with the header <b>Authorization</b>: <b>Token <%= @user.api_key %></b> to authenticate yourself</span>
+	<p>
+		<table>
+			<tr>
+				<th>Method</th>
+				<th>Endpoint</th>
+				<th>Params</th>
+				<th>Action</th>
+			</tr>
+			<tr>
+				<td>GET</td>
+				<td>/api/tasks</td>
+				<td></td>
+				<td>Get all tasks</td>
+			</tr>
+			<tr>
+				<td>GET</td>
+				<td>/api/tasks/:id</td>
+				<td></td>
+				<td>Get the task with the specified id</td>
+			</tr>			
+			<tr>
+				<td>PUT</td>
+				<td>/api/tasks/:id</td>
+				<td>name (string - optional), status (boolean - optional), priority (integer - optional)</td>
+				<td>Update the tasj with the specified id</td>
+			</tr>
+			<tr>
+				<td>POST</td>
+				<td>/api/tasks/</td>
+				<td>name (string - mandatory), priority (integer - optional)</td>
+				<td>Create a task</td>
+			</tr>			
+			<tr>
+				<td>DELETE</td>
+				<td>/api/tasks/:id</td>
+				<td></td>
+				<td>Delete the task with the specified id</td>
+			</tr>
+			<tr></tr>
+			<tr></tr>
+			<tr>
+				<td>POST</td>
+				<td>/api/users/</td>
+				<td>username (string - mandatory), password (string - mandatory), password_confirmation (string - mandatory), <b>the authorization header is not required</b></td>
+				<td>Create a new user, return an auth token</td>
+			</tr>
+			<tr>
+				<td>POST</td>
+				<td>/api/users/login</td>
+				<td>username (string - mandatory), password (string - mandatory), <b>the authorization header is not required</b></td>
+				<td>Return an auth token</td>
+			</tr>		
+			<tr>
+				<td>GET</td>
+				<td>/api/users/me</td>
+				<td></td>
+				<td>Return information about the current user</td>
+			</tr>				
+		</table>
+	</p>
+</p>
