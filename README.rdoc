@@ -5,4 +5,4 @@ Simple todolist using:
 * Spinejs
 
 It's a Single Page Application.
-The backend is just an API and serve one html page.
+The backend is just an API and serves one html page.
